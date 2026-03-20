@@ -1,34 +1,85 @@
-# Cursor plugin template
+# PromptWatch Cursor Plugin
 
-Build and publish Cursor Marketplace plugins from a single repo.
+AI visibility monitoring, citation tracking, and content gap analysis for brands in LLM responses.
 
-Two starter plugins are included:
+## Installation
 
-- **starter-simple**: rules and skills only
-- **starter-advanced**: rules, skills, agents, commands, hooks, MCP, and scripts
+Install from the Cursor Marketplace, or add the MCP server directly:
 
-## Getting started
+```json
+{
+  "promptwatch": {
+    "url": "https://server.promptwatch.com/mcp",
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    }
+  }
+}
+```
 
-[Use this template](https://github.com/cursor/plugin-template/generate) to create a new repository, then customize:
+## Configuration
 
-1. `.cursor-plugin/marketplace.json`: set marketplace `name`, `owner`, and `metadata`.
-2. `plugins/*/.cursor-plugin/plugin.json`: set `name` (lowercase kebab-case), `displayName`, `author`, `description`, `keywords`, `license`, and `version`.
-3. Replace placeholder rules, skills, agents, commands, hooks, scripts, and logos.
+Set your API key as an environment variable:
 
-To add more plugins, see `docs/add-a-plugin.md`.
+```bash
+export PROMPTWATCH_API_KEY=your_api_key_here
+```
 
-## Single plugin vs multi-plugin
+Get your API key at [promptwatch.com](https://promptwatch.com).
 
-This template defaults to **multi-plugin** (multiple plugins in one repo).
+## Components
 
-For a **single plugin**, move your plugin folder contents to the repository root, keep one `.cursor-plugin/plugin.json`, and remove `.cursor-plugin/marketplace.json`.
+### Skills
 
-## Submission checklist
+| Skill | Description |
+|-------|-------------|
+| `setup` | Onboard to PromptWatch — create projects, monitors, brands, prompts |
+| `visibility-report` | Comprehensive AI visibility report across LLMs |
+| `citation-analysis` | Analyze which sources LLMs cite for your brand |
+| `content-gap-analysis` | Find content gaps and get recommendations |
+| `competitor-analysis` | Compare brand vs competitors across AI responses |
+| `traffic-analysis` | Analyze AI-referred traffic and crawler activity |
 
-- Each plugin has a valid `.cursor-plugin/plugin.json`.
-- Plugin names are unique, lowercase, and kebab-case.
-- `.cursor-plugin/marketplace.json` entries map to real plugin folders.
-- All frontmatter metadata is present in rule, skill, agent, and command files.
-- Logos are committed and referenced with relative paths.
-- `node scripts/validate-template.mjs` passes.
-- Repository link is ready for submission to the Cursor team (Slack or `kniparko@anysphere.com`).
+### Agent
+
+| Agent | Description |
+|-------|-------------|
+| `seo-strategist` | AI visibility strategist — produces GEO strategies from PromptWatch data |
+
+### Rules
+
+| Rule | Description |
+|------|-------------|
+| `promptwatch-conventions` | API conventions: date formats, project resolution, bulk operations |
+
+### MCP Server
+
+Connects to the PromptWatch API with 65+ tools across: monitors, prompts, citations, brands, responses, visitors, crawlers, content gaps, tags, personas, projects, and models.
+
+## Plugin Structure
+
+```
+plugins/promptwatch/
+├── .cursor-plugin/
+│   └── plugin.json
+├── mcp.json
+├── assets/
+│   └── logo.svg
+├── skills/
+│   ├── setup/
+│   ├── visibility-report/
+│   ├── citation-analysis/
+│   ├── content-gap-analysis/
+│   ├── competitor-analysis/
+│   └── traffic-analysis/
+├── rules/
+│   └── promptwatch-conventions.mdc
+└── agents/
+    └── seo-strategist.md
+```
+
+## Validation
+
+```bash
+node scripts/validate-template.mjs
+```

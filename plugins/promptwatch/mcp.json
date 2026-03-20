@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "promptwatch": {
+      "url": "https://server.promptwatch.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${PROMPTWATCH_API_KEY}"
+      }
+    }
+  }
+}
