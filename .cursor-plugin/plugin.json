@@ -1,0 +1,35 @@
+{
+  "name": "promptwatch",
+  "displayName": "Promptwatch",
+  "version": "1.1.0",
+  "description": "AI visibility monitoring, citation tracking, and content gap analysis for brands in LLM responses.",
+  "author": {
+    "name": "Promptwatch",
+    "email": "team@promptwatch.com"
+  },
+  "homepage": "https://promptwatch.com",
+  "repository": "https://github.com/promptwatch-com/promptwatch-cursor-template",
+  "license": "MIT",
+  "keywords": [
+    "llm",
+    "seo",
+    "ai-visibility",
+    "brand-monitoring",
+    "citations",
+    "content-gaps",
+    "competitor-analysis",
+    "ai-traffic"
+  ],
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "PROMPTWATCH_API_KEY": {
+        "type": "string",
+        "title": "Promptwatch API key",
+        "description": "Create one under Settings → API Keys in the Promptwatch dashboard (app.promptwatch.com)."
+      }
+    },
+    "required": ["PROMPTWATCH_API_KEY"]
+  }
+}

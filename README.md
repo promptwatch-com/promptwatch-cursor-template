@@ -1,85 +1,53 @@
-# PromptWatch Cursor Plugin
+# Promptwatch for Cursor
 
-AI visibility monitoring, citation tracking, and content gap analysis for brands in LLM responses.
+Track your brand's visibility, citations, and sentiment across ChatGPT, Claude, Gemini, Perplexity, and AI Overviews, directly from Cursor.
 
-## Installation
+This plugin connects Cursor to the [Promptwatch](https://promptwatch.com) MCP server. A Promptwatch account and API key are required.
 
-Install from the Cursor Marketplace, or add the MCP server directly:
+## Install
+
+### Cursor Marketplace
+
+1. Open **Customize → Plugins**, search for **Promptwatch**, and click **Install**.
+2. When prompted, paste your API key. Create one under **Settings → API Keys** in the [Promptwatch dashboard](https://app.promptwatch.com).
+
+You can set or change the key later under **Plugins → Configure**.
+
+### One-click install
+
+Click the button below. Cursor opens an install dialog. Replace `YOUR_API_KEY` with your key, then click **Install**:
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=promptwatch&config=eyJ1cmwiOiJodHRwczovL3NlcnZlci5wcm9tcHR3YXRjaC5jb20vbWNwIiwiaGVhZGVycyI6eyJBdXRob3JpemF0aW9uIjoiQmVhcmVyIFlPVVJfQVBJX0tFWSJ9fQ==)
+
+### Manual configuration
+
+Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
 
 ```json
 {
-  "promptwatch": {
-    "url": "https://server.promptwatch.com/mcp",
-    "headers": {
-      "Authorization": "Bearer YOUR_API_KEY"
+  "mcpServers": {
+    "promptwatch": {
+      "url": "https://server.promptwatch.com/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
     }
   }
 }
 ```
 
-## Configuration
+## What you can ask
 
-Set your API key as an environment variable:
+- "How visible is my brand in AI search results?"
+- "Which sources are LLMs citing when they mention us?"
+- "Compare our AI visibility against competitors."
+- "What content gaps should I address?"
+- "How much traffic are we getting from AI tools?"
 
-```bash
-export PROMPTWATCH_API_KEY=your_api_key_here
-```
+Full tool reference and setup for other clients (Claude, ChatGPT): [promptwatch.com/docs/mcp](https://promptwatch.com/docs/mcp/setup)
 
-Get your API key at [promptwatch.com](https://promptwatch.com).
+## Links
 
-## Components
-
-### Skills
-
-| Skill | Description |
-|-------|-------------|
-| `setup` | Onboard to PromptWatch — create projects, monitors, brands, prompts |
-| `visibility-report` | Comprehensive AI visibility report across LLMs |
-| `citation-analysis` | Analyze which sources LLMs cite for your brand |
-| `content-gap-analysis` | Find content gaps and get recommendations |
-| `competitor-analysis` | Compare brand vs competitors across AI responses |
-| `traffic-analysis` | Analyze AI-referred traffic and crawler activity |
-
-### Agent
-
-| Agent | Description |
-|-------|-------------|
-| `seo-strategist` | AI visibility strategist — produces GEO strategies from PromptWatch data |
-
-### Rules
-
-| Rule | Description |
-|------|-------------|
-| `promptwatch-conventions` | API conventions: date formats, project resolution, bulk operations |
-
-### MCP Server
-
-Connects to the PromptWatch API with 65+ tools across: monitors, prompts, citations, brands, responses, visitors, crawlers, content gaps, tags, personas, projects, and models.
-
-## Plugin Structure
-
-```
-plugins/promptwatch/
-├── .cursor-plugin/
-│   └── plugin.json
-├── mcp.json
-├── assets/
-│   └── logo.svg
-├── skills/
-│   ├── setup/
-│   ├── visibility-report/
-│   ├── citation-analysis/
-│   ├── content-gap-analysis/
-│   ├── competitor-analysis/
-│   └── traffic-analysis/
-├── rules/
-│   └── promptwatch-conventions.mdc
-└── agents/
-    └── seo-strategist.md
-```
-
-## Validation
-
-```bash
-node scripts/validate-template.mjs
-```
+- Website: [promptwatch.com](https://promptwatch.com)
+- Documentation: [promptwatch.com/docs](https://promptwatch.com/docs/mcp/setup)
+- Contact: [team@promptwatch.com](mailto:team@promptwatch.com)
